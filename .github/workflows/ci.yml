@@ -57,7 +57,7 @@ jobs:
           git clone https://x-access-token:${CONFIG_REPO_TOKEN}@github.com/Wesley0703/devops-config.git
           cd devops-config
           sed -i "s|image: ghcr.io/.*/devops-demo:.*|image: ghcr.io/Wesley0703/devops-demo:${{ github.sha }}|" k8s/deployment.yaml
-          317bac7 (update app version to v3.1)
+       
           git config user.name "github-actions"
           git config user.email "actions@github.com"
 

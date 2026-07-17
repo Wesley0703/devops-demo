@@ -10,11 +10,9 @@ from app.login import router as login_router
 
 # 預設 v3.0；blue-green / canary demo 時，用環境變數 APP_VERSION 覆蓋，
 # 讓同一顆 image 跑出不同的版本字串，curl 一眼就看出流量打到哪個版本。
-<<<<<<< HEAD
-VERSION = os.getenv("APP_VERSION", "v4.0")
-=======
+
 VERSION = os.getenv("APP_VERSION", "v3.1")
->>>>>>> 317bac7 (update app version to v3.1)
+
 
 app = FastAPI(title="hello")
 app.include_router(login_router)
@@ -23,7 +21,7 @@ app.include_router(login_router)
 @app.get("/")
 def root():
     # version 字串之後做 blue-green / canary、確認新版上線時會用到
-    return {"service": "order", "version": VERSION, "build": "v2"}
+    return {"service": "order", "version": VERSION, "build": "v123345668"}
 
 
 @app.get("/health")
