@@ -42,8 +42,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/Wesley0703/devops-demo:${{ github.sha }}
-            ghcr.io/Wesley0703/devops-demo:latest
+            ghcr.io/wesley0703/devops-demo:${{ github.sha }}
+            ghcr.io/wesley0703/devops-demo:latest
 
       - name: Update Config Repo
         env:
@@ -54,9 +54,9 @@ jobs:
             exit 0
           fi
 
-          git clone https://x-access-token:${CONFIG_REPO_TOKEN}@github.com/Wesley0703/devops-config.git
+          git clone https://x-access-token:${CONFIG_REPO_TOKEN}@github.com/wesley0703/devops-config.git
           cd devops-config
-          sed -i "s|image: ghcr.io/.*/devops-demo:.*|image: ghcr.io/Wesley0703/devops-demo:${{ github.sha }}|" k8s/deployment.yaml
+          sed -i "s|image: ghcr.io/.*/devops-demo:.*|image: ghcr.io/wesley0703/devops-demo:${{ github.sha }}|" k8s/deployment.yaml
        
           git config user.name "github-actions"
           git config user.email "actions@github.com"
